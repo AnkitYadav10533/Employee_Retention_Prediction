@@ -1,0 +1,228 @@
+/* Import Modern Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Theme Settings */
+:root {
+    --font-header: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Theme Color Palettes */
+.dark-theme {
+    --bg-color: #0b0f19;
+    --bg-gradient: linear-gradient(135deg, #090d16 0%, #111827 100%);
+    --card-bg: rgba(17, 24, 39, 0.6);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --success: #10b981;
+    --success-bg: rgba(16, 185, 129, 0.1);
+    --danger: #ef4444;
+    --danger-bg: rgba(239, 68, 68, 0.1);
+    --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    --glass-blur: 12px;
+}
+
+.light-theme {
+    --bg-color: #f8fafc;
+    --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(15, 23, 42, 0.08);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-glow: rgba(79, 70, 229, 0.15);
+    --success: #059669;
+    --success-bg: rgba(5, 150, 105, 0.1);
+    --danger: #dc2626;
+    --danger-bg: rgba(220, 38, 38, 0.1);
+    --shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.08);
+    --glass-blur: 12px;
+}
+
+/* Global Stylesheet Overrides */
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: var(--font-body) !important;
+    background-color: var(--bg-color) !important;
+    background-image: var(--bg-gradient) !important;
+    color: var(--text-primary) !important;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Sidebar Custom Styling */
+[data-testid="stSidebar"] {
+    background-color: var(--bg-color) !important;
+    background-image: var(--bg-gradient) !important;
+    border-right: 1px solid var(--card-border) !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide Default Headers & Footers */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+footer {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: var(--shadow) !important;
+    margin-bottom: 20px !important;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px -5px var(--accent-glow), var(--shadow) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Metric Cards */
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Typography Custom Settings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header) !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #e066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.gradient-text-light {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Custom Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--accent-glow);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 24px !important;
+    border-radius: 10px !important;
+    font-family: var(--font-header) !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    width: 100%;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.6) !important;
+    background: linear-gradient(135deg, var(--accent-hover) 0%, #7c3aed 100%) !important;
+}
+
+.stButton>button:active {
+    transform: translateY(1px) !important;
+}
+
+/* Success Card */
+.success-card {
+    background: var(--success-bg) !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Danger/Warning Card */
+.danger-card {
+    background: var(--danger-bg) !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Custom Table Design */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.styled-table th {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--text-primary);
+    text-align: left;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-bottom: 2px solid var(--card-border);
+}
+
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-secondary);
+}
+
+/* Animation particles and floating */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-icon {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Light/Dark custom wrapper */
+.theme-wrapper {
+    padding: 10px;
+}
